@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.register2-container {
+  margin: 30px 30px 0 30px;
+  display: block;
+  padding: 0 100px;
+  overflow: auto;
+}
+
+.register2-container img {
+  margin: 30px 50px 0 0; 
+  display: flex;
+  float: left;
+  width: 600px;
+  height: 600px;
+}
+
+.register2-container .register2-form {
+  font-family: 'poppins';
+  margin-top: 0 auto;
+  width: 350px;
+  float: right;
+}
+
+.register2-container .register2-form .register2-text1{
+  font-weight: bolder;
+  font-size: 35px;
+  margin-bottom: -10px;
+}
+
+.register2-container .register2-form .register2-text2{
+  font-size: 18px;
+}
+
+.register2-container .register2-form label{
+  font-size: 15px;
+}
+
+.register2-container .register2-form input {
+  border: 1px solid black;
+  width: 350px;
+  height: 38px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.register2-container .register2-form input[type=text], .register2-container .register2-form input[type=password], .register2-container .register2-form input[type=number]{
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+.register2-container .register2-form input[type=submit]{
+  width: 300px;
+  color: white;
+  background: #148081;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  margin: 10px auto;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.register2-container .register2-form input[type="submit"]:hover {
+    background: #0f6666;
+}
+
+.register2-container .register2-form .register2-text3{
+  margin-top: -10px;
+  width: 100%;
+  text-align: center;
+}
