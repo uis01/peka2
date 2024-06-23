@@ -1,1 +1,93 @@
-GET  http://localhost:3000/user
+
+# mimin
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "uis@example.com",
+    "password": "123"
+}
+
+###
+# user
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "raka@example.com",
+    "password": "1234"
+}
+###
+# user 2
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "axios@example.com",
+    "password": "1234"
+}
+###
+
+DELETE http://localhost:3000/logout
+###
+
+###
+
+GET  http://localhost:3000/me
+###
+
+
+GET http://localhost:3000/user/
+
+
+###
+POST  http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "nama": "axios",
+    "email": "axios@example.com",
+    "password": "1234",
+    "confPassword": "1234",
+    "nik": "12345678909876543",
+    "alamat": "AlamatAnda",
+    "authority": "user",
+    "foto_profile": "URLFotoAnda"
+}
+###
+
+DELETE http://localhost:3000/user
+
+###
+POST  http://localhost:3000/balita
+Content-Type: application/json
+
+{
+    "nama": "bahrnai",
+    "nik": "12345678909876543",
+    "gender": "perempuan",
+    "birth_date": "2019-01-10",
+    "birth_location": "Aceh",
+    "blood_type": "A"
+}
+###
+
+PUT http://localhost:3000/balita/36
+Content-Type: application/json
+
+{
+    "nama": "bangla",
+    "nik": "12345678909876543",
+    "gender": "laki-laki",
+    "birth_date": "2019-01-10",
+    "birth_location": "Aceh",
+    "blood_type": "A"
+}
+
+###
+DELETE  http://localhost:3000/balita/35
+###
+
+ GET http://localhost:3000/balita
+ ###
+

@@ -5,6 +5,8 @@ import dataBalitaRoute from './dataBalita.route.js'
 import artikelRoute from './artikel.route.js'
 import mkiaRoute from './mkia.route.js'
 import mpasiRoute from './mpasi.route.js'
+import authRoute from './auth.route.js'
+
 
 
 const router = express()
@@ -15,5 +17,6 @@ router.use(dataBalitaRoute)
 router.use(artikelRoute)
 router.use(mkiaRoute)
 router.use(mpasiRoute)
+router.use(authRoute)
 
 export default router

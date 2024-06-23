@@ -27,7 +27,7 @@ CREATE TABLE `tb_artikel` (
   `title` varchar(30) NOT NULL,
   `image` varchar(30) NOT NULL,
   `content` varchar(30) NOT NULL,
-  `date` date DEFAULT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `sumber` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -54,7 +54,7 @@ CREATE TABLE `tb_balita` (
   `nama` varchar(30) DEFAULT NULL,
   `nik` bigint NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `birth_date` date DEFAULT NULL,
+  `birth_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `birth_location` varchar(30) NOT NULL,
   `blood_type` varchar(3) NOT NULL,
   PRIMARY KEY (`id_balita`)
@@ -67,7 +67,7 @@ CREATE TABLE `tb_balita` (
 
 LOCK TABLES `tb_balita` WRITE;
 /*!40000 ALTER TABLE `tb_balita` DISABLE KEYS */;
-INSERT INTO `tb_balita` VALUES (1,22,'randi',110713456765445,'laki-laki','2020-09-19','medan','A');
+INSERT INTO `tb_balita` VALUES (2,23,'zinn',1234567890987754,'laki-laki','2024-06-05 05:34:56','maluku','O');
 /*!40000 ALTER TABLE `tb_balita` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,8 +79,9 @@ DROP TABLE IF EXISTS `tb_data_balita`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_data_balita` (
+  `id_data_balita` int NOT NULL,
   `id_balita` int NOT NULL,
-  `check_date` date DEFAULT NULL,
+  `check_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `height` int NOT NULL,
   `weight` int NOT NULL,
   `age` int NOT NULL
@@ -109,7 +110,7 @@ CREATE TABLE `tb_mkia` (
   `category` varchar(30) NOT NULL,
   `image` varchar(30) NOT NULL,
   `content` varchar(30) NOT NULL,
-  `date` date DEFAULT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `sumber` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -136,7 +137,7 @@ CREATE TABLE `tb_mpasi` (
   `category` varchar(30) NOT NULL,
   `image` varchar(30) NOT NULL,
   `content` varchar(30) NOT NULL,
-  `date` date DEFAULT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `sumber` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -187,4 +188,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-18 20:20:17
+-- Dump completed on 2024-06-13  5:49:36

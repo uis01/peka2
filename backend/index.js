@@ -3,9 +3,18 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import { testConnection} from './database/db.js'
 import router from './route/index.js'
+import session from 'express-session'
 
 const app = express()
 dotenv.config()
+app.use(session({
+    secret: process.env.SESS_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        source: 'auto'
+    }
+}))
 app.use(cors())
 app.use(express.json())
 
