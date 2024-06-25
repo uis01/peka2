@@ -27,4 +27,4 @@ const query = async (query,value)=>{
     }
 }
 
-export {testConnection,query}
+export {testConnection, query}

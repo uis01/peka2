@@ -1,11 +1,27 @@
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import './css/input.css'
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { FiMenu } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
 import { FaSearch } from "react-icons/fa";
 
+
 function Database() {
+    const [users, setUsers] = useState([]);
+
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/user')
+            //   .then(res => res.json())
+            .then(response => {
+                setUsers(response.data.data);
+            })
+            .catch(err => console.log(err));
+    }, [])
+
+
     const [open, setOpen] = useState(false);
     const [open2, setsrc] = useState(false);
     return (
@@ -109,54 +125,28 @@ function Database() {
                                 </select>
 
                                 <table className='w-full text-center table-auto border-collapse border border-slate-400 mt-2 px-4 py-4'>
+                                    <thead>
                                     <tr>
                                     <th className='border border-slate-300 px-1 py-4'>No</th>
                                     <th className='border border-slate-300 px-1 py-4'>Nama Pengguna</th>
                                     <th className='border border-slate-300 px-1 py-4'>Nomor Kartu Keluarga</th>
                                     <th className='border border-slate-300 px-1 py-4'>Identitas Anak</th>
                                     </tr> 
-                                    <tr>
-                                        <td className='border border-slate-300 px-1 py-4'>1</td>
-                                        <td className='border border-slate-300 px-1 py-4'>Adam</td>
-                                        <td className='border border-slate-300 px-1 py-4'>1234567890</td>
-                                        <td className='border border-slate-300 px-1 py-4'><button className='bg-blue-900 text-white px-3 py-1 rounded-full'>click here</button></td>
-                                    </tr>  
-                                    <tr>
-                                        <td className='border border-slate-300 px-1 py-4'>2</td>
-                                        <td className='border border-slate-300 px-1 py-4'>Andi</td>
-                                        <td className='border border-slate-300 px-1 py-4'>1234567890</td>
-                                        <td className='border border-slate-300 px-1 py-4'><button className='bg-blue-900 text-white px-3 py-1 rounded-full'>click here</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className='border border-slate-300 px-1 py-4'>3</td>
-                                        <td className='border border-slate-300 px-1 py-4'>Bagas</td>
-                                        <td className='border border-slate-300 px-1 py-4'>1234567890</td>
-                                        <td className='border border-slate-300 px-1 py-4'><button className='bg-blue-900 text-white px-3 py-1 rounded-full'>click here</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className='border border-slate-300 px-1 py-4'>4</td>
-                                        <td className='border border-slate-300 px-1 py-4'>Renal</td>
-                                        <td className='border border-slate-300 px-1 py-4'>1234567890</td>
-                                        <td className='border border-slate-300 px-1 py-4'><button className='bg-blue-900 text-white px-3 py-1 rounded-full'>click here</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className='border border-slate-300 px-1 py-4'>5</td>
-                                        <td className='border border-slate-300 px-1 py-4'>Samsul</td>
-                                        <td className='border border-slate-300 px-1 py-4'>1234567890</td>
-                                        <td className='border border-slate-300 px-1 py-4'><button className='bg-blue-900 text-white px-3 py-1 rounded-full'>click here</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className='border border-slate-300 px-1 py-4'>6</td>
-                                        <td className='border border-slate-300 px-1 py-4'>Martin</td>
-                                        <td className='border border-slate-300 px-1 py-4'>1234567890</td>
-                                        <td className='border border-slate-300 px-1 py-4'><button className='bg-blue-900 text-white px-3 py-1 rounded-full'>click here</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td className='border border-slate-300 px-1 py-4'>7</td>
-                                        <td className='border border-slate-300 px-1 py-4'>Siska</td>
-                                        <td className='border border-slate-300 px-1 py-4'>1234567890</td>
-                                        <td className='border border-slate-300 px-1 py-4'><button className='bg-blue-900 text-white px-3 py-1 rounded-full'>click here</button></td>
-                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {users.map((user, index) => (
+                                            
+                                        
+                                    
+                                    <tr key={index}>
+                                        <td className='border border-slate-300 px-1 py-4'>{index + 1}</td>
+                                        <td className='border border-slate-300 px-1 py-4'>{user.nama_user}</td>
+                                        <td className='border border-slate-300 px-1 py-4'>{user.nik}</td>
+                                        <td className='border border-slate-300 px-1 py-4'><Link to="/identitas anak" className='bg-blue-900 text-white px-3 py-1 rounded-full'>click here</Link></td>
+                                   </tr>     
+                                     ))}
+                                    </tbody>
+                                    
                                 </table>    
                         </div>   
 

@@ -48,37 +48,8 @@ function IdentitasAnak() {
 
     return (
         <>
-            {/* <table className='border-collapse border border-slate-500 p-10 '>
-                         <thead>
-                        <tr>
-                           
-                            <th className='border border-slate-600'>id balita</th>
-                            <th className='border border-slate-600'>id user</th>
-                            <th className='border border-slate-600'>nama</th>
-                            <th className='border border-slate-600'>nik</th>
-                            <th className='border border-slate-600'>gender</th>
-                            <th className='border border-slate-600'>bdate</th>
-                            <th className='border border-slate-600'>bloc</th>
-                            <th className='border border-slate-600'>blood</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {balitas.map((balita) => (
-                        <tr key={balita}>
-                            <td className='border border-slate-600 text-center'>{balita.id_balita}</td>
-                            <td className='border border-slate-600 text-center'>{balita.id_user}</td>
-
-                            <td className='border border-slate-600 text-center'>{balita.nama}</td>
-                            <td className='border border-slate-600 text-center'>{balita.nik}</td>
-                            <td className='border border-slate-600 text-center'>{balita.gender}</td>
-                            <td className='border border-slate-600 text-center'>{balita.birth_date}</td>
-                            <td className='border border-slate-600 text-center'>{balita.birth_location}</td>
-                            <td className='border border-slate-600 text-center'>{balita.blood_type}</td>
-                        </tr>
-        ))}
-                        </tbody>
-                    </table> */}
-            <div className="containerRoot h-full w-full flex flex-row top-0 bg-slate-200 px-2">
+          
+            <div className="containerRoot min-h-screen max-h-full w-full flex flex-row top-0 bg-slate-200 px-2">
 
                 {/* navigation Start  */}
 
@@ -187,53 +158,53 @@ function IdentitasAnak() {
                         <div className=" rounded sm:overflow-hidden shadow-lg w-full sm:max-w-xl m-auto bg-white py-5 rounded-b-3xl rounded-t-3xl">
                             <div className="font-bold text-4xl my-5 text-center text-blue-600">Identitas Anak</div>
                             <table className='table-auto  w-full sm:m-auto border-separate border-spacing-5  left-0 '>
-                            
-                                <tr >
-                                    {balitas.map((balita, index) =>(
-                                        <td colSpan="2" key={index}>
-                                        <label className='text-base text-blue-600'>Nama Anak</label><br />
-                                        <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl  w-full mb-2 capitalize" value={balita.nama} />
-                                    </td>
-                                    ))}
-                                </tr>
-                                <tr>
-                                {balitas.map((balita, index) =>(
-                                    <td colSpan="2" key={index}>
-                                        <label className='text-base text-blue-600'>NIK Anak</label><br />
-                                        <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl  w-full mb-2" value={balita.nik} readOnly/>
-                                    </td>
-                                ))}
-                                </tr>
-                                <tr>
-                                
-                                    {balitas.map((balita, index) =>(
-                                    <td key={index}>
-                                        <label className='text-base text-blue-600'>Tempat</label><br />
-                                        <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl  w-full mb-2 capitalize" value={balita.birth_location} readOnly/>
-                                    </td>
-                                    ))}
-                                    
-                                    {balitas.map((balita, index) =>(
-                                    <td key={index}> 
-                                        <label className='text-base text-blue-600'>Tanggal Lahir</label><br />
-                                        <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl w-full mb-2" value={formatDate(balita.birth_date)} readOnly />
 
-                                     </td>
+                                <tr >
+                                    {balitas.map((balita, index) => (
+                                        <td colSpan="2" key={index}>
+                                            <label className='text-base text-blue-600'>Nama Anak</label><br />
+                                            <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl  w-full mb-2 capitalize" value={balita.nama} />
+                                        </td>
                                     ))}
-                                   
                                 </tr>
                                 <tr>
-                                {balitas.map((balita, index) =>(
-                                    <td key={index}>
-                                        <label className='text-base text-blue-600'>Gender</label><br />
-                                        <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl w-full mb-2 capitalize" value={balita.gender} readOnly />
-                                    </td>
-                                ))}
-                                {balitas.map ((balita, index) => (
-                                    <td key={index}>
-                                        <label className='text-base text-blue-600'>Golongan Darah</label><br />
-                                        <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl w-full  mb-2 capitalize" readOnly value={balita.blood_type}/>
-                                    </td>
+                                    {balitas.map((balita, index) => (
+                                        <td colSpan="2" key={index}>
+                                            <label className='text-base text-blue-600'>NIK Anak</label><br />
+                                            <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl  w-full mb-2" value={balita.nik} readOnly />
+                                        </td>
+                                    ))}
+                                </tr>
+                                <tr>
+
+                                    {balitas.map((balita, index) => (
+                                        <td key={index}>
+                                            <label className='text-base text-blue-600'>Tempat</label><br />
+                                            <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl  w-full mb-2 capitalize" value={balita.birth_location} readOnly />
+                                        </td>
+                                    ))}
+
+                                    {balitas.map((balita, index) => (
+                                        <td key={index}>
+                                            <label className='text-base text-blue-600'>Tanggal Lahir</label><br />
+                                            <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl w-full mb-2" value={formatDate(balita.birth_date)} readOnly />
+
+                                        </td>
+                                    ))}
+
+                                </tr>
+                                <tr>
+                                    {balitas.map((balita, index) => (
+                                        <td key={index}>
+                                            <label className='text-base text-blue-600'>Gender</label><br />
+                                            <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl w-full mb-2 capitalize" value={balita.gender} readOnly />
+                                        </td>
+                                    ))}
+                                    {balitas.map((balita, index) => (
+                                        <td key={index}>
+                                            <label className='text-base text-blue-600'>Golongan Darah</label><br />
+                                            <input className="bg-slate-200 rounded-sm outline-0 h-5 px-5 py-5 rounded-t-xl rounded-b-xl w-full  mb-2 capitalize" readOnly value={balita.blood_type} />
+                                        </td>
                                     ))}
                                 </tr>
                             </table>
