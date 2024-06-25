@@ -1,191 +1,215 @@
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: db_peka
--- ------------------------------------------------------
--- Server version	8.0.37
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 25 Jun 2024 pada 16.44
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `tb_artikel`
+-- Database: `db_peka`
 --
 
-DROP TABLE IF EXISTS `tb_artikel`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `sid` varchar(36) NOT NULL,
+  `expires` datetime NOT NULL,
+  `data` text NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_artikel`
+--
+
 CREATE TABLE `tb_artikel` (
-  `id_artikel` int NOT NULL,
+  `id_artikel` int(11) NOT NULL,
   `title` varchar(30) NOT NULL,
   `image` varchar(30) NOT NULL,
   `content` varchar(30) NOT NULL,
-  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` date NOT NULL,
   `sumber` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `tb_artikel`
+-- Struktur dari tabel `tb_balita`
 --
 
-LOCK TABLES `tb_artikel` WRITE;
-/*!40000 ALTER TABLE `tb_artikel` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_artikel` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tb_balita`
---
-
-DROP TABLE IF EXISTS `tb_balita`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_balita` (
-  `id_balita` int NOT NULL,
-  `id_user` int NOT NULL,
-  `nama` varchar(30) DEFAULT NULL,
-  `nik` bigint NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `birth_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `birth_location` varchar(30) NOT NULL,
-  `blood_type` varchar(3) NOT NULL,
-  PRIMARY KEY (`id_balita`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tb_balita`
---
-
-LOCK TABLES `tb_balita` WRITE;
-/*!40000 ALTER TABLE `tb_balita` DISABLE KEYS */;
-INSERT INTO `tb_balita` VALUES (2,23,'zinn',1234567890987754,'laki-laki','2024-06-05 05:34:56','maluku','O');
-/*!40000 ALTER TABLE `tb_balita` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tb_data_balita`
---
-
-DROP TABLE IF EXISTS `tb_data_balita`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_data_balita` (
-  `id_data_balita` int NOT NULL,
-  `id_balita` int NOT NULL,
-  `check_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `height` int NOT NULL,
-  `weight` int NOT NULL,
-  `age` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tb_data_balita`
---
-
-LOCK TABLES `tb_data_balita` WRITE;
-/*!40000 ALTER TABLE `tb_data_balita` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_data_balita` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tb_mkia`
---
-
-DROP TABLE IF EXISTS `tb_mkia`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_mkia` (
-  `id_mkia` int NOT NULL,
-  `title` varchar(30) NOT NULL,
-  `category` varchar(30) NOT NULL,
-  `image` varchar(30) NOT NULL,
-  `content` varchar(30) NOT NULL,
-  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `sumber` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tb_mkia`
---
-
-LOCK TABLES `tb_mkia` WRITE;
-/*!40000 ALTER TABLE `tb_mkia` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_mkia` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tb_mpasi`
---
-
-DROP TABLE IF EXISTS `tb_mpasi`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_mpasi` (
-  `id_mpasi` int NOT NULL,
-  `title` varchar(30) NOT NULL,
-  `category` varchar(30) NOT NULL,
-  `image` varchar(30) NOT NULL,
-  `content` varchar(30) NOT NULL,
-  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `sumber` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tb_mpasi`
---
-
-LOCK TABLES `tb_mpasi` WRITE;
-/*!40000 ALTER TABLE `tb_mpasi` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_mpasi` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tb_user`
---
-
-DROP TABLE IF EXISTS `tb_user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tb_user` (
-  `id_user` int NOT NULL,
+  `id_balita` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama` varchar(30) NOT NULL,
+  `nik` bigint(20) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `birth_date` date NOT NULL,
+  `birth_location` varchar(30) NOT NULL,
+  `blood_type` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tb_balita`
+--
+
+INSERT INTO `tb_balita` (`id_balita`, `id_user`, `nama`, `nik`, `gender`, `birth_date`, `birth_location`, `blood_type`) VALUES
+(37, 17, 'rendy', 12345678909876543, 'laki-laki', '2019-01-10', 'greenland', 'A'),
+(38, 0, '', 0, '', '0000-00-00', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_data_balita`
+--
+
+CREATE TABLE `tb_data_balita` (
+  `id_data_balita` int(11) NOT NULL,
+  `id_balita` int(11) NOT NULL,
+  `check_date` date NOT NULL,
+  `height` int(11) NOT NULL,
+  `weight` int(11) NOT NULL,
+  `age` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_mkia`
+--
+
+CREATE TABLE `tb_mkia` (
+  `id_mkia` int(11) NOT NULL,
+  `title` varchar(30) NOT NULL,
+  `category` varchar(30) NOT NULL,
+  `image` varchar(30) NOT NULL,
+  `content` varchar(30) NOT NULL,
+  `date` date NOT NULL,
+  `sumber` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_mpasi`
+--
+
+CREATE TABLE `tb_mpasi` (
+  `id_mpasi` int(11) NOT NULL,
+  `title` varchar(30) NOT NULL,
+  `category` varchar(30) NOT NULL,
+  `image` varchar(30) NOT NULL,
+  `content` varchar(30) NOT NULL,
+  `date` date NOT NULL,
+  `sumber` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_user`
+--
+
+CREATE TABLE `tb_user` (
+  `id_user` int(11) NOT NULL,
+  `nama_user` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `nik` bigint NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `nik` bigint(20) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `authority` varchar(30) NOT NULL,
   `foto_profile` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
-LOCK TABLES `tb_user` WRITE;
-/*!40000 ALTER TABLE `tb_user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tb_user` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `tb_user` (`id_user`, `nama_user`, `email`, `password`, `nik`, `alamat`, `authority`, `foto_profile`) VALUES
+(17, 'Hafni', 'raka@example.com', '$argon2id$v=19$m=65536,t=3,p=4$vIlcz2q6eSoiADrJr/c4FA$XM8VKNcFYK7/js132RXL8E5ZjAqSdF8/plMAgAMEUIA', 12345678909876543, 'AlamatAnda', 'admin', 'URLFotoAnda'),
+(19, 'Dela', 'axios@example.com', '$argon2id$v=19$m=65536,t=3,p=4$mKkU7ucfely/sQVHIVO7/Q$4OouXVenqtDUrnk5WORcFEY6YSOlmS9BknUJ53dWEt8', 12345678909876543, 'AlamatAnda', 'user', 'URLFotoAnda'),
+(20, 'axios', 'axios@example.com', '$argon2id$v=19$m=65536,t=3,p=4$UYf/feJLSkEHQO+m6dKsmw$ksjKiBCtkdA7V/GMu2Gi89BzuxYIbIh5JyPhyd1I2Jg', 12345678909876543, 'AlamatAnda', 'user', 'URLFotoAnda'),
+(21, 'sri', 'sri@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$N8JrJ/FN6OEbq23iMhq/iA$TWOOeUFUswsdcSytGNoeJ2PI8vpaZUdJ20H/sAYO+74', 12345678909876543, 'Surabaya', 'admin', 'URLFotoAnda');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`sid`);
+
+--
+-- Indeks untuk tabel `tb_balita`
+--
+ALTER TABLE `tb_balita`
+  ADD PRIMARY KEY (`id_balita`);
+
+--
+-- Indeks untuk tabel `tb_data_balita`
+--
+ALTER TABLE `tb_data_balita`
+  ADD PRIMARY KEY (`id_data_balita`);
+
+--
+-- Indeks untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_balita`
+--
+ALTER TABLE `tb_balita`
+  MODIFY `id_balita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `tb_balita`
+--
+ALTER TABLE `tb_balita`
+  ADD CONSTRAINT `fk_id_user` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`);
+
+--
+-- Ketidakleluasaan untuk tabel `tb_data_balita`
+--
+ALTER TABLE `tb_data_balita`
+  ADD CONSTRAINT `fk_id_balita` FOREIGN KEY (`id_balita`) REFERENCES `tb_balita` (`id_balita`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2024-06-13  5:49:36
